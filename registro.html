@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Veterinaria San Marcos</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="logo">
+      <img src="img/logo.png" alt="Logo Veterinaria San Marcos">
+      <span>Veterinaria San Marcos</span>
+    </div>
+
+    <nav class="main-nav">
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="servicios.html">Servicios</a></li>
+        <li><a href="nosotros.html">Nosotros</a></li>
+        <li><a href="blogs.html">Blogs</a></li>
+        <li><a href="contacto.html">Contacto</a></li>
+      </ul>
+    </nav>
+
+    <div class="user-actions">
+      <a href="login.html">Iniciar sesión</a>
+      <a href="registro.html">Registrarse</a>
+    </div>
+  </header>
+
+    <main>
+        <section id="registro" class="bg-light py-5">
+            <div class="container">
+                <div class="row justify-content-center" >
+                    <div class="col-12 col-md-8 col-lg-6">
+                        <h2 class="text-center mb-4">
+                            Registro de usuario
+                        </h2>
+
+                        <form action="" method=""
+                            id="formulario-registro"
+                            class="border rounded p-4 shadow bg-white"
+                            novalidate
+                        >
+                        <div class="mb-3">
+                            <label for="nombre" class="form-label" >
+                                Nombre completo
+                            </label>
+
+                            <input 
+                                type="text"
+                                id="nombreRegistro"
+                                class="form-control"
+                                placeholder="Ingrese su nombre"
+                            >
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="correo" class="form-label" >
+                                Correo Electrónico
+                            </label>
+
+                            <input 
+                                type="email"
+                                id="correoRegistro"
+                                class="form-control"
+                                placeholder="nombre@correo.cl"
+                            >
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="correo" class="form-label" >
+                                Confirmar Correo Electrónico
+                            </label>
+
+                            <input 
+                                type="email"
+                                id="correoConfirmar"
+                                class="form-control"
+                                placeholder="nombre@correo.cl"
+                            >
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="password" class="form-label" >
+                                Contraseña
+                            </label>
+
+                            <input 
+                                type="password"
+                                id="password"
+                                class="form-control"
+                                placeholder="Contraseña"
+                            >
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="password" class="form-label" >
+                                Confirmar Contraseña
+                            </label>
+
+                            <input 
+                                type="password"
+                                id="passwordConfirmar"
+                                class="form-control"
+                                placeholder="Contraseña"
+                            >
+                        </div>
+
+
+                        <button type="submit" class="btn btn-primary w-100">
+                            Registrar
+                        </button>
+                        </form>
+
+                        <div
+                            id="mensaje-resultado"
+                            class="mt-4"
+                            role="alert"
+                        >
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+  <footer class="site-footer">
+    <p>&copy; 2026 Veterinaria San Marcos</p>
+    <nav>
+      <a href="nosotros.html">Nosotros</a>
+      <a href="contacto.html">Contacto</a>
+    </nav>
+  </footer>
+
+  <script src="js/registro.js"></script>
+</body>
+</html>
