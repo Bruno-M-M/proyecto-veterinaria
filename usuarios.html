@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gestión de Usuarios</title>
+  <link rel="stylesheet" href="css/usuarios.css">
+  
+  <script src="js/usuarios.js" defer></script>
+</head>
+<body>
+
+  <div class="app-container">
+    
+    <!-- Barra Lateral -->
+    <aside class="sidebar">
+      <div class="brand">
+        <span class="logo-icon">⬡</span>
+        <span>AdminPanel</span>
+      </div>
+      <nav class="menu">
+        <a href="#" class="menu-item">Dashboard</a>
+        <a href="#" class="menu-item active">Usuarios</a>
+        <a href="#" class="menu-item">Reportes</a>
+        <a href="#" class="menu-item"> Configuración</a>
+      </nav>
+    </aside>
+
+    <!-- Área Principal -->
+    <main class="main-content">
+      
+      <!-- Encabezado -->
+      <header class="header">
+        <div>
+          <h1>Lista de Usuarios</h1>
+          <p class="subtitle">Administra la información de usuarios y sus observaciones</p>
+        </div>
+        <div class="header-actions">
+          <button class="btn-primary" id="btnNuevoUsuario">NUEVO USUARIO</button>
+          <button class="btn-primary" id="btnEditarUsuario">EDITAR USUARIO</button>
+
+          
+        </div>
+      </header>
+
+      <!-- Barra de Filtro / Búsqueda -->
+      <div class="controls-bar">
+        <input type="text" id="searchInput" placeholder="Buscar por nombre, correo u observación..." class="search-input">
+      </div>
+
+      <!-- Tabla de Datos -->
+      <div class="table-container">
+        <table>
+          <thead>
+            <tr>
+              <th>Nombre <span class="sort-icon">⇕</span></th>
+              <th>Correo <span class="sort-icon">⇕</span></th>
+              <th>Observaciones</th>
+            </tr>
+          </thead>
+          <tbody id="tableBody">
+            <!-- Filas dinámicas generadas desde JS -->
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Paginación -->
+      <div class="pagination">
+        <button class="page-btn">&laquo;</button>
+        <button class="page-btn">&lt;</button>
+        <button class="page-btn page-num active">1</button>
+        <button class="page-btn page-num">2</button>
+        <button class="page-btn page-num">3</button>
+        <button class="page-btn">&gt;</button>
+        <button class="page-btn">&raquo;</button>
+      </div>
+
+    </main>
+  </div>
+
+</body>
+</html>
