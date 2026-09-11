@@ -1,0 +1,94 @@
+/* Contenedor de servicios en grid */
+
+
+.servicios {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 1.5rem;
+    padding: 1rem 2rem 3rem;
+}
+
+
+.servicios article {
+    background: #ffffff;
+    border: 1px solid #e5e7eb;
+    border-radius: 12px;
+    padding: 1.5rem;
+    box-shadow: 0 2px 6px lightgray;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.servicios article:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+}
+
+.servicios article h3 {
+    font-size: 1.15rem;
+    font-weight: 600;
+    color: #1f2937;
+    margin-bottom: 0.5rem;
+}
+
+.servicios article p {
+    font-size: 0.92rem;
+    color: #4b5563;
+    line-height: 1.4;
+    margin-bottom: 1rem;
+}
+
+/* Precio como badge destacado */
+.servicios article .precio {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #198754;
+    margin-bottom: 1rem;
+}
+
+/* Botón alineado al fondo de la tarjeta */
+.servicios article .boton-agregar {
+    margin-top: auto;
+    align-self: flex-start;
+    border-radius: 8px;
+    font-weight: 500;
+}
+
+/* distingir por color al borde */
+.servicios article.consulta {
+    border-left: 4px solid #198754;
+}
+
+.servicios article.vacunacion {
+    border-left: 4px solid #0d6efd;
+}
+
+/* menu burger*/
+.menu-toggle {
+  display: block;
+  font-size: 1.8rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.main-nav {
+  display: none;
+  width: 100%;
+}
+
+.main-nav.active {
+  display: block;
+}
+
+@media (min-width: 768px) {
+  .menu-toggle {
+    display: none;
+  }
+
+  .main-nav {
+    display: block;
+  }
+}
