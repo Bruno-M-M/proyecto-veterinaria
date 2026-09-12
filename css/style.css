@@ -1,5 +1,41 @@
-/* Contenedor de servicios en grid */
+:root {
 
+  /*colores servicios*/
+
+  --color-consulta: rgba(0, 124, 21, 0.781);
+  --color-vacuna: rgba(48, 48, 48, 0.808);
+  --color-cirujia: rgb(0, 8, 119);
+  --color-desparasitacion: rgba(151, 168, 0, 0.836);
+  --color-examenes: rgba(80, 0, 133, 0.747);
+  --color-otro: rgba(247, 160, 0, 0.897);
+
+}
+
+/* menu burger*/
+.menu-toggle {
+  display: block;
+  font-size: 1.8rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.main-nav {
+  display: none;
+  width: 100%;
+}
+
+.main-nav.active {
+  display: block;
+}
+
+/* main y otras cosas*/
+
+main{
+  background-color: aliceblue;
+}
+
+/* Contenedor de servicios en grid */
 
 .servicios {
     display: grid;
@@ -8,9 +44,13 @@
     padding: 1rem 2rem 3rem;
 }
 
+.servicios-nombre {
+  text-align: center;
+}
+
 
 .servicios article {
-    background: #ffffff;
+    background: azure;
     border: 1px solid #e5e7eb;
     border-radius: 12px;
     padding: 1.5rem;
@@ -54,33 +94,45 @@
     align-self: flex-start;
     border-radius: 8px;
     font-weight: 500;
+    color: var(--color-servicio) !important;
+    border-color: var(--color-servicio) !important;
+    background-color: transparent !important;
 }
 
-/* distingir por color al borde */
+.servicios article .boton-agregar:hover {
+    background-color: var(--color-servicio) !important;
+    color: #fff !important;
+}
+
+/* Cada categoría define su color una sola vez, borde y botón lo heredan */
 .servicios article.consulta {
-    border-left: 4px solid #198754;
+    --color-servicio: var(--color-consulta);
+    border-left: 4px solid var(--color-servicio);
 }
 
 .servicios article.vacunacion {
-    border-left: 4px solid #0d6efd;
+    --color-servicio: var(--color-vacuna);
+    border-left: 4px solid var(--color-servicio);
 }
 
-/* menu burger*/
-.menu-toggle {
-  display: block;
-  font-size: 1.8rem;
-  background: none;
-  border: none;
-  cursor: pointer;
+.servicios article.cirujia {
+    --color-servicio: var(--color-cirujia);
+    border-left: 4px solid var(--color-servicio);
 }
 
-.main-nav {
-  display: none;
-  width: 100%;
+.servicios article.desparasitacion {
+    --color-servicio: var(--color-desparasitacion);
+    border-left: 4px solid var(--color-servicio);
 }
 
-.main-nav.active {
-  display: block;
+.servicios article.examenes {
+    --color-servicio: var(--color-examenes);
+    border-left: 4px solid var(--color-servicio);
+}
+
+.servicios article.otro {
+    --color-servicio: var(--color-otro);
+    border-left: 4px solid var(--color-servicio);
 }
 
 @media (min-width: 768px) {
