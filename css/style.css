@@ -29,12 +29,6 @@
   display: block;
 }
 
-/* main y otras cosas*/
-
-main{
-  background-color: aliceblue;
-}
-
 /* Contenedor de servicios en grid */
 
 .servicios {
@@ -44,13 +38,9 @@ main{
     padding: 1rem 2rem 3rem;
 }
 
-.servicios-nombre {
-  text-align: center;
-}
-
 
 .servicios article {
-    background: azure;
+    background: #ffffff;
     border: 1px solid #e5e7eb;
     border-radius: 12px;
     padding: 1.5rem;
@@ -110,12 +100,13 @@ main{
     border-left: 4px solid var(--color-servicio);
 }
 
+
 .servicios article.vacunacion {
     --color-servicio: var(--color-vacuna);
     border-left: 4px solid var(--color-servicio);
 }
 
-.servicios article.cirujia {
+.servicios article.cirugia {
     --color-servicio: var(--color-cirujia);
     border-left: 4px solid var(--color-servicio);
 }
