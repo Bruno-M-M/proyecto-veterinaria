@@ -12,6 +12,15 @@
   --color-vacunas: rgba(48, 48, 48, 0.808);
   --color-suplementos: rgb(107, 142, 35);
 
+  /*colores por categoría de servicio (citas)*/
+
+  --color-consulta: rgb(0, 105, 148);
+  --color-vacunacion: rgba(48, 48, 48, 0.808);
+  --color-cirugia: rgba(119, 0, 0, 0.856);
+  --color-desparacitacion: rgba(247, 160, 0, 0.897);
+  --color-examenes: rgba(80, 0, 133, 0.747);
+  --color-otros: rgb(107, 142, 35);
+
 }
 
 /* menu burger*/
@@ -213,6 +222,38 @@ footer {
 .servicios article.suplementos,
 .recomendado-item.suplementos {
     --color-servicio: var(--color-suplementos);
+    border-left: 6px solid var(--color-servicio);
+}
+
+/* Categorías de servicios (citas) */
+
+.servicios article.consulta {
+    --color-servicio: var(--color-consulta);
+    border-left: 6px solid var(--color-servicio);
+}
+
+.servicios article.vacunacion {
+    --color-servicio: var(--color-vacunacion);
+    border-left: 6px solid var(--color-servicio);
+}
+
+.servicios article.cirugia {
+    --color-servicio: var(--color-cirugia);
+    border-left: 6px solid var(--color-servicio);
+}
+
+.servicios article.desparacitacion {
+    --color-servicio: var(--color-desparacitacion);
+    border-left: 6px solid var(--color-servicio);
+}
+
+.servicios article.examenes {
+    --color-servicio: var(--color-examenes);
+    border-left: 6px solid var(--color-servicio);
+}
+
+.servicios article.otros {
+    --color-servicio: var(--color-otros);
     border-left: 6px solid var(--color-servicio);
 }
 

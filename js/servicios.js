@@ -1,73 +1,70 @@
 
-function crearTarjetaProducto(producto) {
+function crearTarjetaServicio(servicio) {
   const article = document.createElement("article");
-  article.className = producto.categoria;
+  article.className = servicio.categoria;
 
   const h3 = document.createElement("h3");
-  const link = document.createElement("a");
-  link.href = `detalle-producto.html?codigo=${producto.codigo}`;
-  link.className = "producto-link";
-  link.textContent = producto.nombre;
-  h3.appendChild(link);
+  h3.textContent = servicio.nombre;
 
-  const p = document.createElement("p");
-  p.textContent = producto.descripcion;
+  const info = document.createElement("p");
+  info.textContent = `${servicio.especie} — ${servicio.duracion} min`;
 
   const precio = document.createElement("p");
   precio.className = "precio";
-  precio.textContent = `$${producto.precio}`;
+  precio.textContent = `$${servicio.precio}`;
 
   const boton = document.createElement("button");
-  boton.className = "btn btn-outline-success boton-agregar";
-  boton.dataset.producto = producto.codigo;
-  boton.dataset.precio = producto.precio;
-  boton.textContent = "Agregar";
+  boton.className = "btn btn-outline-success boton-agendar";
+  boton.dataset.servicio = servicio.codigo;
+  boton.textContent = "Agendar";
 
-  article.append(h3, p, precio, boton);
+  article.append(h3, info);
+
+  if (servicio.observaciones) {
+    const observaciones = document.createElement("p");
+    observaciones.className = "observaciones";
+    observaciones.textContent = servicio.observaciones;
+    article.appendChild(observaciones);
+  }
+
+  article.append(precio, boton);
   return article;
 }
 
-function renderizarProductos(categoria) {
+function renderizarServicios(categoria) {
   const contenedor = document.querySelector(".servicios");
   if (!contenedor) return;
 
   contenedor.innerHTML = "";
 
-  const productosAMostrar =
-    !categoria || categoria === "todas"
-      ? productos
-      : productos.filter((producto) => producto.categoria === categoria);
+  const serviciosAMostrar = !categoria
+    ? servicios
+    : servicios.filter((servicio) => servicio.categoria === categoria);
 
-  productosAMostrar.forEach((producto) => {
-    contenedor.appendChild(crearTarjetaProducto(producto));
+  serviciosAMostrar.forEach((servicio) => {
+    contenedor.appendChild(crearTarjetaServicio(servicio));
   });
 }
 
-const carrito = JSON.parse(localStorage.getItem("carrito")) || [];
+const citasAgendadas = JSON.parse(localStorage.getItem("citasAgendadas")) || [];
 
-function guardarCarrito() {
-  localStorage.setItem("carrito", JSON.stringify(carrito));
+function guardarCitas() {
+  localStorage.setItem("citasAgendadas", JSON.stringify(citasAgendadas));
 }
 
-function agregarAlCarrito(boton) {
-  const producto = boton.dataset.producto;
-  const precio = Number(boton.dataset.precio);
-  const nombre = boton.closest("article").querySelector("h3").textContent;
+function agendarCita(boton) {
+  const codigo = boton.dataset.servicio;
+  const servicio = servicios.find((s) => s.codigo === codigo);
+  if (!servicio) return;
 
-  const item = carrito.find((p) => p.producto === producto);
-  if (item) {
-    item.cantidad++;
-  } else {
-    carrito.push({ producto, nombre, precio, cantidad: 1 });
-  }
-
-  guardarCarrito();
+  citasAgendadas.push({ servicio: servicio.codigo, nombre: servicio.nombre, precio: servicio.precio });
+  guardarCitas();
   mostrarConfirmacion(boton);
 }
 
 function mostrarConfirmacion(boton) {
   const textoOriginal = boton.textContent;
-  boton.textContent = "Agregado";
+  boton.textContent = "Agendado";
   boton.disabled = true;
 
   setTimeout(() => {
@@ -76,18 +73,18 @@ function mostrarConfirmacion(boton) {
   }, 1200);
 }
 
-renderizarProductos();
+renderizarServicios();
 
 document.addEventListener("click", (evento) => {
-  const boton = evento.target.closest(".boton-agregar");
+  const boton = evento.target.closest(".boton-agendar");
   if (boton) {
-    agregarAlCarrito(boton);
+    agendarCita(boton);
   }
 });
 
-const selectCategoria = document.getElementById("categoria-select");
-if (selectCategoria) {
-  selectCategoria.addEventListener("change", () => {
-    renderizarProductos(selectCategoria.value);
+const selectCita = document.getElementById("select-cita");
+if (selectCita) {
+  selectCita.addEventListener("change", () => {
+    renderizarServicios(selectCita.value);
   });
 }
