@@ -3,6 +3,7 @@ console.log("JavaScript esta funcionando desde app.js");
 /*Formulario de registro*/
 const formulario = document.getElementById("formulario-registro");
 const nombreRegistro = document.getElementById("nombreRegistro");
+const runRegistro = document.getElementById("runRegistro");
 const correoRegistro = document.getElementById("correoRegistro");
 const correoConfirmar = document.getElementById("correoConfirmar");
 const passwordRegistro = document.getElementById("password");
@@ -13,13 +14,14 @@ formulario.addEventListener("submit", function(evento){
     evento.preventDefault();
     
     const nombre = nombreRegistro.value.trim();
+    const run = runRegistro.value.trim();
     const correoReg = correoRegistro.value.trim();
     const correoConf = correoConfirmar.value.trim();
     const pwdReg = passwordRegistro.value.trim();
     const pwdConf = passwordConfirmar.value.trim();
 
     if (
-        nombre === "" || correoReg === "" || correoConf === "" || pwdReg === "" || pwdConf === ""
+        nombre === "" || run === "" || correoReg === "" || correoConf === "" || pwdReg === "" || pwdConf === ""
     ) {
         mensajeResultado.textContent = "Debe completar todos los campos.";
         mensajeResultado.className = "alert alert-danger mt-4";
@@ -35,6 +37,14 @@ formulario.addEventListener("submit", function(evento){
     const soloLetrasYEspacios = /^[a-zA-ZáéíóúÁÉÍÓÚñÑ\s]+$/;
     if (!soloLetrasYEspacios.test(nombre)) {
         mensajeResultado.textContent = "El nombre solo debe contener caracteres alfabéticos y espacios.";
+        mensajeResultado.className = "alert alert-danger mt-4";
+        return;
+    }
+
+    // Validación de RUN: solo dígitos numéricos (entre 7 y 8 dígitos)
+    const regexRun = /^\d{7,9}$/;
+    if (!regexRun.test(run)) {
+        mensajeResultado.textContent = "El RUN debe ser un número de 7 u 8 dígitos, sin puntos, guión ni dígito verificador.";
         mensajeResultado.className = "alert alert-danger mt-4";
         return;
     }
