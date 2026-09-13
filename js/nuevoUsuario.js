@@ -162,7 +162,7 @@ formulario.addEventListener("submit", function(evento){
     const pwdReg = passwordRegistro.value.trim();
     const pwdConf = passwordConfirmar.value.trim();
 
-    // Validación de campos vacíos
+    // Validación de campos vacíos (Requeridos)
     if (
         nombre === "" || run === "" || correoReg === "" || correoConf === "" || 
         region === "" || comuna === "" || tipoUsuario === "" || pwdReg === "" || pwdConf === ""
@@ -208,8 +208,19 @@ formulario.addEventListener("submit", function(evento){
         return;
     }
 
-    if (correoReg.length > 60){
-        mensajeResultado.textContent = "El correo debe contener menos de 60 caracteres.";
+    // Validación de longitud máxima del correo (Máximo 100 caracteres)
+    if (correoReg.length > 100){
+        mensajeResultado.textContent = "El correo electrónico debe contener un máximo de 100 caracteres.";
+        mensajeResultado.className = "alert alert-danger mt-4";
+        return;
+    }
+
+    // Validación de dominio del correo (@duoc.cl, @profesor.duoc.cl, @gmail.com)
+    const dominiosPermitidos = ["@duoc.cl", "@profesor.duoc.cl", "@gmail.com"];
+    const esDominioValido = dominiosPermitidos.some(dominio => correoReg.toLowerCase().endsWith(dominio));
+    
+    if (!esDominioValido) {
+        mensajeResultado.textContent = "El correo debe pertenecer a uno de los dominios permitidos: @duoc.cl, @profesor.duoc.cl o @gmail.com.";
         mensajeResultado.className = "alert alert-danger mt-4";
         return;
     }
