@@ -104,47 +104,47 @@
 /* Cada categoría define su color una sola vez, borde y botón lo heredan */
 .servicios article.antibioticos {
     --color-servicio: var(--color-antibioticos);
-    border-left: 4px solid var(--color-servicio);
+    border-left: 6px solid var(--color-servicio);
 }
 
 .servicios article.antiparasitarios {
     --color-servicio: var(--color-antiparasitarios);
-    border-left: 4px solid var(--color-servicio);
+    border-left: 6px solid var(--color-servicio);
 }
 
 .servicios article.antiinflamatorios {
     --color-servicio: var(--color-antiinflamatorios);
-    border-left: 4px solid var(--color-servicio);
+    border-left: 6px solid var(--color-servicio);
 }
 
 .servicios article.dermatologia {
     --color-servicio: var(--color-dermatologia);
-    border-left: 4px solid var(--color-servicio);
+    border-left: 6px solid var(--color-servicio);
 }
 
 .servicios article.digestivo {
     --color-servicio: var(--color-digestivo);
-    border-left: 4px solid var(--color-servicio);
+    border-left: 6px solid var(--color-servicio);
 }
 
 .servicios article.cardiaco {
     --color-servicio: var(--color-cardiaco);
-    border-left: 4px solid var(--color-servicio);
+    border-left: 6px solid var(--color-servicio);
 }
 
 .servicios article.analgesicos {
     --color-servicio: var(--color-analgesicos);
-    border-left: 4px solid var(--color-servicio);
+    border-left: 6px solid var(--color-servicio);
 }
 
 .servicios article.vacunas {
     --color-servicio: var(--color-vacunas);
-    border-left: 4px solid var(--color-servicio);
+    border-left: 6px solid var(--color-servicio);
 }
 
 .servicios article.suplementos {
     --color-servicio: var(--color-suplementos);
-    border-left: 4px solid var(--color-servicio);
+    border-left: 6px solid var(--color-servicio);
 }
 
 @media (min-width: 768px) {
@@ -165,4 +165,79 @@
   .servicios {
     grid-template-columns: repeat(3, 1fr);
   }
+}
+
+/* Carrito de compras */
+
+.carrito-contenido {
+    margin: 0 2rem 3rem;
+    background: #ffffff;
+    border: 1px solid #e5e7eb;
+    border-radius: 12px;
+    padding: 1.5rem;
+    box-shadow: 0 2px 6px lightgray;
+}
+
+.tabla-carrito-wrap {
+    overflow-x: auto;
+}
+
+.tabla-carrito {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.tabla-carrito th,
+.tabla-carrito td {
+    padding: 0.75rem 0.5rem;
+    text-align: left;
+    border-bottom: 1px solid #e5e7eb;
+    white-space: nowrap;
+}
+
+.tabla-carrito th {
+    color: #4b5563;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+}
+
+.tabla-carrito tbody tr:last-child td {
+    border-bottom: none;
+}
+
+.cantidad-control {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.carrito-cantidad {
+    min-width: 1.2rem;
+    text-align: center;
+    font-variant-numeric: tabular-nums;
+}
+
+#carrito-vacio {
+    text-align: center;
+    color: #4b5563;
+    padding: 2rem 0;
+}
+
+.carrito-resumen {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-top: 1.5rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid #e5e7eb;
+}
+
+.carrito-total {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #198754;
+    margin: 0;
+    margin-right: auto;
 }
