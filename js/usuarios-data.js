@@ -1,3 +1,12 @@
+const regionesYComunas = [
+  { region: "Metropolitana de Santiago", comunas: ["Santiago", "Providencia", "Las Condes", "Maipú", "Puente Alto"] },
+  { region: "Valparaíso", comunas: ["Valparaíso", "Viña del Mar", "Concón", "Quilpué"] },
+  { region: "Biobío", comunas: ["Concepción", "Talcahuano", "Los Ángeles"] },
+  { region: "Coquimbo", comunas: ["La Serena", "Coquimbo", "Ovalle"] },
+  { region: "Araucanía", comunas: ["Temuco", "Pucón", "Villarrica"] },
+  { region: "Los Lagos", comunas: ["Puerto Montt", "Osorno", "Castro"] }
+];
+
 const usuariosData = [
   { 
     nombre: "Carlos Mendoza", 
@@ -30,37 +39,5 @@ const usuariosData = [
     region: "Biobío", 
     comuna: "Concepción", 
     tipoUsuario: "Cliente" 
-  },
-  { 
-    nombre: "Lucía Morales", 
-    run: "165432109", 
-    correo: "lucia.m@gmail.com", 
-    region: "Metropolitana de Santiago", 
-    comuna: "Providencia", 
-    tipoUsuario: "Cliente" 
-  },
-  { 
-    nombre: "Javier Ríos", 
-    run: "143210987", 
-    correo: "j.rios@profesor.duoc.cl", 
-    region: "Coquimbo", 
-    comuna: "La Serena", 
-    tipoUsuario: "Vendedor" 
-  },
-  { 
-    nombre: "Elena Torres", 
-    run: "12345678K", 
-    correo: "elena.torres@duoc.cl", 
-    region: "Araucanía", 
-    comuna: "Temuco", 
-    tipoUsuario: "Cliente" 
-  },
-  { 
-    nombre: "Gabriel Silva", 
-    run: "201234567", 
-    correo: "gabriel.silva@gmail.com", 
-    region: "Los Lagos", 
-    comuna: "Puerto Montt", 
-    tipoUsuario: "Administrador" 
   }
 ];

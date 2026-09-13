@@ -76,7 +76,6 @@ const correoRegistro = document.getElementById("correoRegistro");
 const correoConfirmar = document.getElementById("correoConfirmar");
 const regionRegistro = document.getElementById("regionRegistro");
 const comunaRegistro = document.getElementById("comunaRegistro");
-const tipoUsuarioRegistro = document.getElementById("tipoUsuario");
 const passwordRegistro = document.getElementById("password");
 const passwordConfirmar = document.getElementById("passwordConfirmar");
 const mensajeResultado = document.getElementById("mensaje-resultado");
@@ -160,7 +159,6 @@ formulario.addEventListener("submit", function(evento){
     const correoConf = correoConfirmar.value.trim();
     const region = regionRegistro ? regionRegistro.value : "";
     const comuna = comunaRegistro ? comunaRegistro.value : "";
-    const tipoUsuario = tipoUsuarioRegistro ? tipoUsuarioRegistro.value : "";
     const pwdReg = passwordRegistro.value.trim();
     const pwdConf = passwordConfirmar.value.trim();
 

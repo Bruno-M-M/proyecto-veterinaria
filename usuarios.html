@@ -6,15 +6,47 @@
   <title>Gestión de Usuarios</title>
   <link rel="stylesheet" href="css/usuarios.css">
   
-  <!-- Carga primero los datos y luego la lógica -->
   <script src="js/usuarios-data.js" defer></script>
   <script src="js/usuarios.js" defer></script>
+
+  <style>
+    /* Estilos integrados para el Modal de Edición */
+    .modal-overlay {
+      position: fixed;
+      top: 0; left: 0; width: 100%; height: 100%;
+      background: rgba(0, 0, 0, 0.5);
+      display: none;
+      justify-content: center;
+      align-items: center;
+      z-index: 1000;
+    }
+    .modal-overlay.active { display: flex; }
+    .modal-content {
+      background: #fff;
+      padding: 24px;
+      border-radius: 8px;
+      width: 100%;
+      max-width: 480px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+    }
+    .modal-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px; }
+    .modal-header h3 { margin: 0; font-size: 1.25rem; }
+    .btn-close { background: none; border: none; font-size: 1.5rem; cursor: pointer; }
+    .form-group { margin-bottom: 12px; }
+    .form-group label { display: block; font-size: 0.875rem; font-weight: 600; margin-bottom: 4px; }
+    .form-group input, .form-group select {
+      width: 100%; padding: 8px 12px; border: 1px solid #d1d5db; border-radius: 6px; box-sizing: border-box;
+    }
+    .modal-footer { display: flex; justify-content: flex-end; gap: 8px; margin-top: 16px; }
+    .btn-secondary { background: #6b7280; color: #fff; border: none; padding: 8px 16px; border-radius: 6px; cursor: pointer; }
+    .btn-action-edit { background: #2563eb; color: #fff; border: none; padding: 4px 10px; border-radius: 4px; cursor: pointer; font-size: 0.85rem; }
+    .btn-action-edit:hover { background: #1d4ed8; }
+  </style>
 </head>
 <body>
 
   <div class="app-container">
     
-    <!-- Barra Lateral -->
     <aside class="sidebar">
       <div class="brand">
         <span class="logo-icon">⬡</span>
@@ -28,27 +60,21 @@
       </nav>
     </aside>
 
-    <!-- Área Principal -->
     <main class="main-content">
       
-      <!-- Encabezado -->
       <header class="header">
         <div>
           <h1>Lista de Usuarios</h1>
           <p class="subtitle">Administra la información de usuarios registrados</p>
         </div>
         <div class="header-actions">
-          <button class="btn-primary" id="btnNuevoUsuario">NUEVO USUARIO</button>
-          <button class="btn-primary" id="btnEditarUsuario">EDITAR USUARIO</button>
-        </div>
+<a href="registro.html" class="btn-primary" style="text-decoration: none; display: inline-block;">NUEVO USUARIO</a>        </div>
       </header>
 
-      <!-- Barra de Filtro / Búsqueda -->
       <div class="controls-bar">
         <input type="text" id="searchInput" placeholder="Buscar por nombre, RUN, correo, región, comuna..." class="search-input">
       </div>
 
-      <!-- Tabla de Datos -->
       <div class="table-container">
         <table>
           <thead>
@@ -59,6 +85,7 @@
               <th>Región</th>
               <th>Comuna</th>
               <th>Tipo</th>
+              <th>Acciones</th>
             </tr>
           </thead>
           <tbody id="tableBody">
@@ -67,7 +94,6 @@
         </table>
       </div>
 
-      <!-- Paginación -->
       <div class="pagination">
         <button class="page-btn">&laquo;</button>
         <button class="page-btn">&lt;</button>
@@ -79,6 +105,58 @@
       </div>
 
     </main>
+  </div>
+
+  <!-- Modal para Editar Usuario -->
+  <div class="modal-overlay" id="modalEditar">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3>Editar Usuario</h3>
+        <button class="btn-close" id="btnCerrarModal">&times;</button>
+      </div>
+      <form id="formEditarUsuario">
+        <input type="hidden" id="editUserIndex">
+        
+        <div class="form-group">
+          <label for="editNombre">Nombre Completo</label>
+          <input type="text" id="editNombre" required>
+        </div>
+
+        <div class="form-group">
+          <label for="editRun">RUN</label>
+          <input type="text" id="editRun" required maxlength="9">
+        </div>
+
+        <div class="form-group">
+          <label for="editCorreo">Correo Electrónico</label>
+          <input type="email" id="editCorreo" required>
+        </div>
+
+        <div class="form-group">
+          <label for="editRegion">Región</label>
+          <select id="editRegion" required></select>
+        </div>
+
+        <div class="form-group">
+          <label for="editComuna">Comuna</label>
+          <select id="editComuna" required></select>
+        </div>
+
+        <div class="form-group">
+          <label for="editTipo">Tipo de Usuario</label>
+          <select id="editTipo" required>
+            <option value="Administrador">Administrador</option>
+            <option value="Cliente">Cliente</option>
+            <option value="Vendedor">Vendedor</option>
+          </select>
+        </div>
+
+        <div class="modal-footer">
+          <button type="button" class="btn-secondary" id="btnCancelarEditar">Cancelar</button>
+          <button type="submit" class="btn-primary">Guardar Cambios</button>
+        </div>
+      </form>
+    </div>
   </div>
 
 </body>
