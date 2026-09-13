@@ -112,7 +112,7 @@ document.getElementById("btn-vaciar").addEventListener("click", () => {
 });
 
 document.getElementById("btn-pagar").addEventListener("click", () => {
-  alert("¡Gracias por tu compra! Nos pondremos en contacto para confirmar tus horas.");
+  alert("¡Gracias por tu compra! Te contactaremos para confirmar el despacho de tu pedido.");
   guardarCarrito([]);
   renderizarCarrito();
 });
