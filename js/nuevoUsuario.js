@@ -1,29 +1,132 @@
 console.log("JavaScript esta funcionando desde app.js");
 
-/*Formulario de registro*/
+// Arreglo complementario de Regiones y Comunas de Chile
+const regionesYComunas = [
+    {
+        region: "Arica y Parinacota",
+        comunas: ["Arica", "Camarones", "Putre", "General Lagos"]
+    },
+    {
+        region: "Tarapacá",
+        comunas: ["Iquique", "Alto Hospicio", "Pozo Almonte", "Camiña", "Colchane", "Huara", "Pica"]
+    },
+    {
+        region: "Antofagasta",
+        comunas: ["Antofagasta", "Mejillones", "Sierra Gorda", "Taltal", "Calama", "Ollagüe", "San Pedro de Atacama", "Tocopilla", "María Elena"]
+    },
+    {
+        region: "Atacama",
+        comunas: ["Copiapó", "Caldera", "Tierra Amarilla", "Chañaral", "Diego de Almagro", "Vallenar", "Alto del Carmen", "Freirina", "Huasco"]
+    },
+    {
+        region: "Coquimbo",
+        comunas: ["La Serena", "Coquimbo", "Andacollo", "La Higuera", "Paihuano", "Vicuña", "Illapel", "Canela", "Los Vilos", "Salamanca", "Ovalle", "Combarbalá", "Monte Patria", "Punitaqui", "Río Hurtado"]
+    },
+    {
+        region: "Valparaíso",
+        comunas: ["Valparaíso", "Viña del Mar", "Concón", "Quilpué", "Villa Alemana", "Limache", "Olmué", "Quillota", "San Antonio", "Los Andes", "San Felipe"]
+    },
+    {
+        region: "Metropolitana de Santiago",
+        comunas: ["Santiago", "Cerrillos", "Cerro Navia", "Conchalí", "El Bosque", "Estación Central", "Huechuraba", "Independencia", "La Cisterna", "La Florida", "La Granja", "La Pintana", "La Reina", "Las Condes", "Lo Barnechea", "Lo Espejo", "Lo Prado", "Macul", "Maipú", "Ñuñoa", "Pedro Aguirre Cerda", "Peñalolén", "Providencia", "Pudahuel", "Quilicura", "Quinta Normal", "Recoleta", "Renca", "San Joaquín", "San Miguel", "San Ramón", "Vitacura", "Puente Alto", "San Bernardo"]
+    },
+    {
+        region: "O'Higgins",
+        comunas: ["Rancagua", "Machalí", "Graneros", "San Fernando", "Santa Cruz", "Pichilemu"]
+    },
+    {
+        region: "Maule",
+        comunas: ["Talca", "Curicó", "Linares", "Constitución", "Cauquenes"]
+    },
+    {
+        region: "Ñuble",
+        comunas: ["Chillán", "Bulnes", "Chillán Viejo", "El Carmen", "Pemuco", "Pinto", "Quillón", "San Ignacio", "Yungay"]
+    },
+    {
+        region: "Biobío",
+        comunas: ["Concepción", "Talcahuano", "San Pedro de la Paz", "Chiguayante", "Coronel", "Lota", "Hualpén", "Los Ángeles"]
+    },
+    {
+        region: "Araucanía",
+        comunas: ["Temuco", "Padre Las Casas", "Villarrica", "Pucón", "Angol"]
+    },
+    {
+        region: "Los Ríos",
+        comunas: ["Valdivia", "Corral", "Lanco", "Los Lagos", "Máfil", "Mariquina", "Paillaco", "Panguipulli", "La Unión", "Río Bueno"]
+    },
+    {
+        region: "Los Lagos",
+        comunas: ["Puerto Montt", "Puerto Varas", "Castro", "Ancud", "Osorno"]
+    },
+    {
+        region: "Aysén",
+        comunas: ["Coyhaique", "Puerto Aysén", "Chile Chico", "Cochrane"]
+    },
+    {
+        region: "Magallanes y de la Antártica Chilena",
+        comunas: ["Punta Arenas", "Puerto Natales", "Porvenir", "Cabo de Hornos"]
+    }
+];
+
+/* Formulario de registro */
 const formulario = document.getElementById("formulario-registro");
 const nombreRegistro = document.getElementById("nombreRegistro");
 const runRegistro = document.getElementById("runRegistro");
 const correoRegistro = document.getElementById("correoRegistro");
 const correoConfirmar = document.getElementById("correoConfirmar");
+const regionRegistro = document.getElementById("regionRegistro");
+const comunaRegistro = document.getElementById("comunaRegistro");
 const tipoUsuarioRegistro = document.getElementById("tipoUsuario");
 const passwordRegistro = document.getElementById("password");
 const passwordConfirmar = document.getElementById("passwordConfirmar");
 const mensajeResultado = document.getElementById("mensaje-resultado");
 
 /**
+ * Cargar regiones en el select al inicializar el script
+ */
+function cargarRegiones() {
+    regionesYComunas.forEach(item => {
+        const option = document.createElement("option");
+        option.value = item.region;
+        option.textContent = item.region;
+        regionRegistro.appendChild(option);
+    });
+}
+
+cargarRegiones();
+
+/**
+ * Evento al cambiar de región para filtrar las comunas
+ */
+regionRegistro.addEventListener("change", function() {
+    const regionSeleccionada = this.value;
+    const objetoRegion = regionesYComunas.find(item => item.region === regionSeleccionada);
+
+    comunaRegistro.innerHTML = '<option value="" disabled selected>Seleccione una comuna</option>';
+
+    if (objetoRegion) {
+        comunaRegistro.disabled = false;
+        objetoRegion.comunas.forEach(comuna => {
+            const option = document.createElement("option");
+            option.value = comuna;
+            option.textContent = comuna;
+            comunaRegistro.appendChild(option);
+        });
+    } else {
+        comunaRegistro.disabled = true;
+    }
+});
+
+/**
  * Función para validar un RUN chileno ingresado sin puntos ni guión
- * Ejemplo: "12345678K" o "190532299"
  */
 function validarRUN(run) {
-    // Debe tener entre 8 y 9 caracteres: 7 u 8 dígitos + 1 dígito verificador (número o 'k')
     const regExp = /^[0-9]{7,8}[0-9kK]$/;
     if (!regExp.test(run)) return false;
 
     const cuerpo = run.slice(0, -1);
     let dv = run.slice(-1).toUpperCase();
 
-    // Algoritmo de verificación Módulo 11
     let suma = 0;
     let multiplicador = 2;
 
@@ -53,22 +156,33 @@ formulario.addEventListener("submit", function(evento){
     const run = runRegistro.value.trim();
     const correoReg = correoRegistro.value.trim();
     const correoConf = correoConfirmar.value.trim();
-    const tipoUsuario = tipoUsuarioRegistro.value;
+    const region = regionRegistro ? regionRegistro.value : "";
+    const comuna = comunaRegistro ? comunaRegistro.value : "";
+    const tipoUsuario = tipoUsuarioRegistro ? tipoUsuarioRegistro.value : "";
     const pwdReg = passwordRegistro.value.trim();
     const pwdConf = passwordConfirmar.value.trim();
 
     // Validación de campos vacíos
     if (
-        nombre === "" || run === "" || correoReg === "" || correoConf === "" || tipoUsuario === "" || pwdReg === "" || pwdConf === ""
+        nombre === "" || run === "" || correoReg === "" || correoConf === "" || 
+        region === "" || comuna === "" || tipoUsuario === "" || pwdReg === "" || pwdConf === ""
     ) {
         mensajeResultado.textContent = "Debe completar todos los campos.";
         mensajeResultado.className = "alert alert-danger mt-4";
         return;
     }
 
-    // Validación de RUN (sin puntos ni guión)
+    // Validación de RUN con dígito verificador
     if (!validarRUN(run)) {
         mensajeResultado.textContent = "El RUN ingresado no es válido. Ingréselo sin puntos ni guión (ej: 12345678K).";
+        mensajeResultado.className = "alert alert-danger mt-4";
+        return;
+    }
+
+    // Validación de relación Región - Comuna
+    const objetoRegion = regionesYComunas.find(item => item.region === region);
+    if (!objetoRegion || !objetoRegion.comunas.includes(comuna)) {
+        mensajeResultado.textContent = "Debe seleccionar una región y comuna válidas.";
         mensajeResultado.className = "alert alert-danger mt-4";
         return;
     }

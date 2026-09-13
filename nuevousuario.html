@@ -51,7 +51,7 @@
                 >
               </div>
 
-              <!-- Nuevo campo: RUN -->
+              <!-- Campo RUN -->
               <div class="mb-3">
                 <label for="runRegistro" class="form-label">RUN (sin puntos ni guión)</label>
                 <input 
@@ -81,6 +81,22 @@
                   class="form-control"
                   placeholder="nombre@correo.cl"
                 >
+              </div>
+
+              <!-- Seleccionador de Región -->
+              <div class="mb-3">
+                <label for="regionRegistro" class="form-label">Región</label>
+                <select id="regionRegistro" class="form-select">
+                  <option value="" disabled selected>Seleccione una región</option>
+                </select>
+              </div>
+
+              <!-- Seleccionador de Comuna (Dinámico) -->
+              <div class="mb-3">
+                <label for="comunaRegistro" class="form-label">Comuna</label>
+                <select id="comunaRegistro" class="form-select" disabled>
+                  <option value="" disabled selected>Seleccione primero una región</option>
+                </select>
               </div>
 
               <div class="mb-3">
