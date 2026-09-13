@@ -30,3 +30,113 @@
   padding: 2rem;
   background-color: #fafafa;
 }
+
+/* Listado de productos */
+
+.admin-content-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1.5rem;
+}
+
+.admin-tabla-wrap {
+  overflow-x: auto;
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+}
+
+.admin-tabla {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.admin-tabla th,
+.admin-tabla td {
+  padding: 0.75rem 1rem;
+  text-align: left;
+  border-bottom: 1px solid #e5e7eb;
+  white-space: nowrap;
+}
+
+.admin-tabla th {
+  color: #4b5563;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+.admin-tabla tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.stock-alerta {
+  display: inline-block;
+  margin-top: 0.15rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #b45309;
+  background: #fff3cd;
+  padding: 0.1rem 0.5rem;
+  border-radius: 999px;
+}
+
+/* Formulario de producto */
+
+.form-producto {
+  max-width: 520px;
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 2rem;
+}
+
+.campo {
+  margin-bottom: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.campo label {
+  font-weight: 500;
+  color: #1f2937;
+}
+
+.campo input,
+.campo textarea,
+.campo select {
+  padding: 0.5rem 0.75rem;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  font-size: 0.95rem;
+}
+
+.campo-error {
+  color: #dc2626;
+  font-size: 0.82rem;
+  margin: 0;
+  min-height: 1em;
+}
+
+.form-mensaje {
+  padding: 0.75rem 1rem;
+  border-radius: 8px;
+  margin-bottom: 1.25rem;
+}
+
+.form-mensaje-exito {
+  background: #d1f7e0;
+  color: #14532d;
+}
+
+.form-mensaje-error {
+  background: #fde2e1;
+  color: #7f1d1d;
+}
+
+.form-acciones {
+  display: flex;
+  gap: 1rem;
+}
