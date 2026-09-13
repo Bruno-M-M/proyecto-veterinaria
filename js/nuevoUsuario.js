@@ -1,65 +1,68 @@
-// Datos ficticios de usuarios
-const usuariosData = [
-  { nombre: "Carlos Mendoza", correo: "carlos.mendoza@email.com", observaciones: "Cuenta de Administrador Principal. Requiere verificación de dos factores." },
-  { nombre: "Ana María Gómez", correo: "ana.gomez@empresa.org", observaciones: "Usuario activo. Rol de edición de contenidos." },
-  { nombre: "Sofía Rossi", correo: "s.rossi@techmail.net", observaciones: "Suscripción Premium anual pagada el 15/01." },
-  { nombre: "Diego Fernández", correo: "diego.f@diseno.com", observaciones: "Pendiente de completar datos de perfil." },
-  { nombre: "Lucía Morales", correo: "lucia.m@consultora.io", observaciones: "Acceso temporal finaliza a fin de mes." },
-  { nombre: "Javier Ríos", correo: "j.rios@desarrollo.dev", observaciones: "Inactividad detectada durante los últimos 30 días." },
-  { nombre: "Elena Torres", correo: "elena.torres@ventas.cl", observaciones: "Cliente VIP. Prioridad en soporte técnico." },
-  { nombre: "Gabriel Silva", correo: "gabriel.silva@innovacion.es", observaciones: "Solicitó cambio de dirección de correo electrónico." }
-];
+console.log("JavaScript esta funcionando desde app.js");
 
-// Función para renderizar filas en la tabla
-function renderTable(data) {
-  const tbody = document.getElementById('tableBody');
-  tbody.innerHTML = '';
+/*Formulario de registro*/
+const formulario = document.getElementById("formulario-registro");
+const nombreRegistro = document.getElementById("nombreRegistro");
+const correoRegistro = document.getElementById("correoRegistro");
+const correoConfirmar = document.getElementById("correoConfirmar");
+const passwordRegistro = document.getElementById("password");
+const passwordConfirmar = document.getElementById("passwordConfirmar");
+const mensajeResultado = document.getElementById("mensaje-resultado");
 
-  if (data.length === 0) {
-    tbody.innerHTML = '<tr><td colspan="3" style="text-align:center; padding: 20px; color: #6b7280;">No se encontraron usuarios.</td></tr>';
-    return;
-  }
+formulario.addEventListener("submit", function(evento){
+    evento.preventDefault();
+    
+    const nombre = nombreRegistro.value.trim();
+    const correoReg = correoRegistro.value.trim();
+    const correoConf = correoConfirmar.value.trim();
+    const pwdReg = passwordRegistro.value.trim();
+    const pwdConf = passwordConfirmar.value.trim();
 
-  data.forEach(user => {
-    const row = document.createElement('tr');
-    row.innerHTML = `
-      <td style="font-weight: 500;">${user.nombre}</td>
-      <td style="color: #2563eb;">${user.correo}</td>
-      <td>${user.observaciones}</td>
-    `;
-    tbody.appendChild(row);
-  });
-}
+    if (
+        nombre === "" || correoReg === "" || correoConf === "" || pwdReg === "" || pwdConf === ""
+    ) {
+        mensajeResultado.textContent = "Debe completar todos los campos.";
+        mensajeResultado.className = "alert alert-danger mt-4";
+        return;
+    }
 
-// Búsqueda en tiempo real
-const searchInput = document.getElementById('searchInput');
-if (searchInput) {
-  searchInput.addEventListener('input', (e) => {
-    const query = e.target.value.toLowerCase();
-    const filtered = usuariosData.filter(u => 
-      u.nombre.toLowerCase().includes(query) || 
-      u.correo.toLowerCase().includes(query) ||
-      u.observaciones.toLowerCase().includes(query)
-    );
-    renderTable(filtered);
-  });
-}
+    if (nombre.length > 100){
+        mensajeResultado.textContent = "El nombre debe contener menos de 100 caracteres.";
+        mensajeResultado.className = "alert alert-danger mt-4";
+        return;
+    }
 
-// Paginación interacción
-const pageButtons = document.querySelectorAll('.page-num');
-pageButtons.forEach(button => {
-  button.addEventListener('click', function() {
-    document.querySelector('.page-num.active')?.classList.remove('active');
-    this.classList.add('active');
-  });
-});
+    const soloLetrasYEspacios = /^[a-zA-ZáéíóúÁÉÍÓÚñÑ\s]+$/;
+    if (!soloLetrasYEspacios.test(nombre)) {
+        mensajeResultado.textContent = "El nombre solo debe contener caracteres alfabéticos y espacios.";
+        mensajeResultado.className = "alert alert-danger mt-4";
+        return;
+    }
 
-// Botón Nuevo Usuario
-document.getElementById('btnNuevoUsuario')?.addEventListener('click', () => {
-  alert('Abrir formulario para registrar un nuevo usuario');
-});
+    if (correoReg.length > 60){
+        mensajeResultado.textContent = "El correo debe contener menos de 60 caracteres.";
+        mensajeResultado.className = "alert alert-danger mt-4";
+        return;
+    }
 
-// Cargar datos al iniciar
-document.addEventListener('DOMContentLoaded', () => {
-  renderTable(usuariosData);
+    if (correoReg !== correoConf) {
+        mensajeResultado.textContent = "Los correos electrónicos no coinciden.";
+        mensajeResultado.className = "alert alert-danger mt-4";
+        return;
+    }
+
+    if (pwdReg.length < 10){
+        mensajeResultado.textContent = "La contraseña debe contener al menos 10 caracteres.";
+        mensajeResultado.className = "alert alert-danger mt-4";
+        return;
+    }
+
+    if (pwdReg !== pwdConf) {
+        mensajeResultado.textContent = "Las contraseñas no coinciden.";
+        mensajeResultado.className = "alert alert-danger mt-4";
+        return;
+    }
+
+    mensajeResultado.textContent = "¡Registro exitoso!";
+    mensajeResultado.className = "alert alert-success mt-4";
 });

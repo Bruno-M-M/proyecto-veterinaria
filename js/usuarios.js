@@ -60,6 +60,5 @@ document.getElementById('btnNuevoUsuario')?.addEventListener('click', () => {
 });
 
 // Cargar datos al iniciar
-document.addEventListener('DOMContentLoaded', () => {
+
   renderTable(usuariosData);
-});
