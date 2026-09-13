@@ -44,7 +44,7 @@
 /* disposicion de main, footer y descripciopn de nosotros jeje*/
 
 main {
-    background-color: rgba(0, 197, 115, 0.219); /* TODO cambiar a colores institucionales del vet*/
+    background-color: #e6f2ef; /* TODO cambiar a colores institucionales del vet*/
 }
 
 nav a {
@@ -53,20 +53,23 @@ nav a {
 }
 
 footer {
+    color: white;
     font-size: 14px;
     text-align: center;
     padding: 10px;
-    background-color: rgba(184, 135, 0, 0.459); /* TODO cambiar a colores institucionales del vet*/
+    background-color: #205a4d; /* TODO cambiar a colores institucionales del vet*/
 }
 
 .foter-nosotros {
     display: flex;
     padding: 5px;    
+    color: white;
 }
 
 .foter-contacto {
     display: flex;
     padding: 5px;
+    color: white;
 }
 
 /* buscar por categorias */
@@ -478,4 +481,98 @@ footer {
 
 .aviso-no-encontrado a {
     color: #7c4a03;
+}
+
+/* Modal de agendar cita */
+
+.modal-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+    z-index: 1000;
+}
+
+.modal-contenido {
+    position: relative;
+    background: #ffffff;
+    border-radius: 12px;
+    padding: 2rem;
+    width: 100%;
+    max-width: 480px;
+    max-height: 90vh;
+    overflow-y: auto;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.modal-cerrar {
+    position: absolute;
+    top: 0.75rem;
+    right: 1rem;
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    line-height: 1;
+    cursor: pointer;
+    color: #4b5563;
+}
+
+.modal-contenido .form-producto {
+    max-width: none;
+    padding: 0;
+    border: none;
+}
+
+.modal-contenido h3 {
+    margin-top: 0;
+    margin-bottom: 1.25rem;
+}
+
+/* Formularios (compartido con modal de citas) */
+
+.campo {
+  margin-bottom: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.campo label {
+  font-weight: 500;
+  color: #1f2937;
+}
+
+.campo input,
+.campo textarea,
+.campo select {
+  padding: 0.5rem 0.75rem;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  font-size: 0.95rem;
+}
+
+.campo-error {
+  color: #dc2626;
+  font-size: 0.82rem;
+  margin: 0;
+  min-height: 1em;
+}
+
+.form-mensaje {
+  padding: 0.75rem 1rem;
+  border-radius: 8px;
+  margin-bottom: 1.25rem;
+}
+
+.form-mensaje-exito {
+  background: #d1f7e0;
+  color: #14532d;
+}
+
+.form-mensaje-error {
+  background: #fde2e1;
+  color: #7f1d1d;
 }
