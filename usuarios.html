@@ -24,7 +24,7 @@
         <a href="#" class="menu-item">Dashboard</a>
         <a href="#" class="menu-item active">Usuarios</a>
         <a href="#" class="menu-item">Reportes</a>
-        <a href="#" class="menu-item"> Configuración</a>
+        <a href="#" class="menu-item">Configuración</a>
       </nav>
     </aside>
 
@@ -35,19 +35,17 @@
       <header class="header">
         <div>
           <h1>Lista de Usuarios</h1>
-          <p class="subtitle">Administra la información de usuarios y sus observaciones</p>
+          <p class="subtitle">Administra la información de usuarios registrados</p>
         </div>
         <div class="header-actions">
           <button class="btn-primary" id="btnNuevoUsuario">NUEVO USUARIO</button>
           <button class="btn-primary" id="btnEditarUsuario">EDITAR USUARIO</button>
-
-          
         </div>
       </header>
 
       <!-- Barra de Filtro / Búsqueda -->
       <div class="controls-bar">
-        <input type="text" id="searchInput" placeholder="Buscar por nombre, correo u observación..." class="search-input">
+        <input type="text" id="searchInput" placeholder="Buscar por nombre, RUN, correo, región, comuna..." class="search-input">
       </div>
 
       <!-- Tabla de Datos -->
@@ -56,8 +54,11 @@
           <thead>
             <tr>
               <th>Nombre <span class="sort-icon">⇕</span></th>
+              <th>RUN</th>
               <th>Correo <span class="sort-icon">⇕</span></th>
-              <th>Observaciones</th>
+              <th>Región</th>
+              <th>Comuna</th>
+              <th>Tipo</th>
             </tr>
           </thead>
           <tbody id="tableBody">
