@@ -32,6 +32,56 @@
   display: block;
 }
 
+/* disposicion de main, footer y descripciopn de nosotros jeje*/
+
+main {
+    background-color: rgba(0, 197, 115, 0.219); /* TODO cambiar a colores institucionales del vet*/
+}
+
+nav a {
+    text-decoration: none;
+    color: black; /* TODO cambiar a colores institucionales del vet*//* TODO cambiar a colores institucionales del vet*/
+}
+
+footer {
+    font-size: 14px;
+    text-align: center;
+    padding: 10px;
+    background-color: rgba(184, 135, 0, 0.459); /* TODO cambiar a colores institucionales del vet*/
+}
+
+.foter-nosotros {
+    display: flex;
+    padding: 5px;    
+}
+
+.foter-contacto {
+    display: flex;
+    padding: 5px;
+}
+
+/* buscar por categorias */
+
+.select-categoria {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-right: 2rem;
+}
+
+.select-categoria .servicios-nombre {
+    padding: 10;
+}
+
+.categoria-select {
+    padding: 0.5rem 1rem;
+    border: 1px solid darkgoldenrod; /*TODO modificar color a institucional cuando se elijan colores */
+    border-radius: 8px;
+    color: rgb(184, 134, 11); /*TODO modificar color a institucional cuando se elijan colores */
+    background-color: rgba(184, 135, 11, 0.027);
+    font-weight: 500;
+}
+
 /* Contenedor de productos en grid */
 
 .servicios-nombre {
@@ -70,6 +120,16 @@
     margin-bottom: 0.5rem;
 }
 
+.producto-link {
+    color: inherit;
+    text-decoration: none;
+}
+
+.producto-link:hover {
+    text-decoration: underline;
+    color: var(--color-servicio);
+}
+
 .servicios article p {
     font-size: 0.92rem;
     color: #4b5563;
@@ -102,47 +162,56 @@
 }
 
 /* Cada categoría define su color una sola vez, borde y botón lo heredan */
-.servicios article.antibioticos {
+.servicios article.antibioticos,
+.recomendado-item.antibioticos {
     --color-servicio: var(--color-antibioticos);
     border-left: 6px solid var(--color-servicio);
 }
 
-.servicios article.antiparasitarios {
+.servicios article.antiparasitarios,
+.recomendado-item.antiparasitarios {
     --color-servicio: var(--color-antiparasitarios);
     border-left: 6px solid var(--color-servicio);
 }
 
-.servicios article.antiinflamatorios {
+.servicios article.antiinflamatorios,
+.recomendado-item.antiinflamatorios {
     --color-servicio: var(--color-antiinflamatorios);
     border-left: 6px solid var(--color-servicio);
 }
 
-.servicios article.dermatologia {
+.servicios article.dermatologia,
+.recomendado-item.dermatologia {
     --color-servicio: var(--color-dermatologia);
     border-left: 6px solid var(--color-servicio);
 }
 
-.servicios article.digestivo {
+.servicios article.digestivo,
+.recomendado-item.digestivo {
     --color-servicio: var(--color-digestivo);
     border-left: 6px solid var(--color-servicio);
 }
 
-.servicios article.cardiaco {
+.servicios article.cardiaco,
+.recomendado-item.cardiaco {
     --color-servicio: var(--color-cardiaco);
     border-left: 6px solid var(--color-servicio);
 }
 
-.servicios article.analgesicos {
+.servicios article.analgesicos,
+.recomendado-item.analgesicos {
     --color-servicio: var(--color-analgesicos);
     border-left: 6px solid var(--color-servicio);
 }
 
-.servicios article.vacunas {
+.servicios article.vacunas,
+.recomendado-item.vacunas {
     --color-servicio: var(--color-vacunas);
     border-left: 6px solid var(--color-servicio);
 }
 
-.servicios article.suplementos {
+.servicios article.suplementos,
+.recomendado-item.suplementos {
     --color-servicio: var(--color-suplementos);
     border-left: 6px solid var(--color-servicio);
 }
@@ -157,13 +226,13 @@
   }
 
   .servicios {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(3, 1fr);
   }
 }
 
 @media (min-width: 1280px) {
   .servicios {
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(4, 1fr);
   }
 }
 
@@ -240,4 +309,132 @@
     color: #198754;
     margin: 0;
     margin-right: auto;
+}
+
+/* Detalle de producto */
+
+#detalle-producto {
+    padding: 1rem 2rem 3rem;
+    max-width: 640px;
+}
+
+.volver {
+    margin-bottom: 1rem;
+}
+
+.volver a {
+    color: #4b5563;
+    text-decoration: none;
+    font-size: 0.92rem;
+}
+
+.volver a:hover {
+    text-decoration: underline;
+}
+
+.detalle-contenido {
+    background: #ffffff;
+    border: 1px solid #e5e7eb;
+    border-left: 6px solid var(--color-servicio, #198754);
+    border-radius: 12px;
+    padding: 2rem;
+    box-shadow: 0 2px 6px lightgray;
+}
+
+.detalle-categoria {
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--color-servicio, #198754);
+    margin-bottom: 0.25rem;
+}
+
+#detalle-nombre {
+    margin-top: 0;
+    margin-bottom: 0.75rem;
+}
+
+.detalle-descripcion {
+    color: #4b5563;
+    line-height: 1.5;
+    margin-bottom: 1.25rem;
+}
+
+.detalle-precio {
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: var(--color-servicio, #198754);
+    margin-bottom: 1.5rem;
+}
+
+.detalle-cantidad {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.recomendados {
+    margin-top: 2rem;
+}
+
+.recomendados h3 {
+    font-size: 1rem;
+    color: #4b5563;
+    margin-bottom: 0.75rem;
+}
+
+.recomendados-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 0.75rem;
+}
+
+.recomendado-item {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    background: #ffffff;
+    border: 1px solid #e5e7eb;
+    border-left: 3px solid var(--color-servicio, #198754);
+    border-radius: 8px;
+    padding: 0.75rem 1rem;
+    text-decoration: none;
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.recomendado-item:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+}
+
+.recomendado-nombre {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #1f2937;
+}
+
+.recomendado-precio {
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: var(--color-servicio, #198754);
+}
+
+.aviso-no-encontrado {
+    background: #fff8e6;
+    border: 1px solid #f5d99a;
+    border-left: 6px solid #d97706;
+    border-radius: 12px;
+    padding: 1.5rem 2rem;
+    color: #7c4a03;
+}
+
+.aviso-no-encontrado p {
+    margin: 0 0 0.75rem;
+    font-weight: 600;
+}
+
+.aviso-no-encontrado a {
+    color: #7c4a03;
 }

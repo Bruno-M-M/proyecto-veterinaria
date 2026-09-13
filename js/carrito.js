@@ -7,6 +7,8 @@ function guardarCarrito(carrito) {
   localStorage.setItem("carrito", JSON.stringify(carrito));
 }
 
+/* aca se contruye el resumen del carrito */
+
 function crearFilaCarrito(item, indice) {
   const fila = document.createElement("tr");
 

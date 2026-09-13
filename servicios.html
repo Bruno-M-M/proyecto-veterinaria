@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="css/style.css">
 
     <script src="js/main.js" defer></script>
+    <script src="js/productos-data.js" defer></script>
     <script src="js/servicios.js" defer></script>
 </head>
 
@@ -45,17 +46,33 @@
 
         <!--PRODUCTOS: lista continua, sin dividir por categoria-->
         <section id="productos">
-            <h2 class="servicios-nombre">Nuestros Productos</h2>
+            <div class="select-categoria">
+                <h2 class="servicios-nombre">Nuestros Productos</h2>
+
+                <select id="categoria-select" class="categoria-select">
+                    <option value="todas" selected>Todas las categorías</option>
+                    <option value="antibioticos">Antibióticos</option>
+                    <option value="antiparasitarios">Antiparasitarios</option>
+                    <option value="antiinflamatorios">Antiinflamatorios</option>
+                    <option value="dermatologia">Dermatología</option>
+                    <option value="digestivo">Digestivo</option>
+                    <option value="cardiaco">Cardíaco</option>
+                    <option value="analgesicos">Analgésicos</option>
+                    <option value="vacunas">Vacunas</option>
+                    <option value="suplementos">Suplementos</option>
+                </select>
+            </div>
+
             <div class="servicios"></div>
         </section>
     </main>
 
     <footer class="site-footer">
-        <p>&copy; 2026 Veterinaria San Marcos</p>
         <nav>
-            <a href="nosotros.html">Nosotros</a>
-            <a href="contacto.html">Contacto</a>
+            <a class="foter-nosotros" href="nosotros.html">Nosotros</a>
+            <a class="foter-contacto" href="contacto.html">Contacto</a>
         </nav>
+        <p>&copy; 2026 Veterinaria San Marcos</p>
     </footer>
 
 </body>
