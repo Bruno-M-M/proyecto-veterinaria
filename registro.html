@@ -51,13 +51,15 @@
                 >
               </div>
 
-                <div class="mb-3">
-                <label for="runRegistro" class="form-label">RUN sin guión ni dígito verificador</label>
+              <!-- RUN actualizado con dígito verificador -->
+              <div class="mb-3">
+                <label for="runRegistro" class="form-label">RUN (sin puntos ni guión)</label>
                 <input 
                   type="text"
                   id="runRegistro"
                   class="form-control"
-                  placeholder="Ingrese su RUN"
+                  placeholder="12345678K"
+                  maxlength="9"
                 >
               </div>
 
@@ -79,6 +81,17 @@
                   class="form-control"
                   placeholder="nombre@correo.cl"
                 >
+              </div>
+
+              <!-- Campo Tipo de Usuario -->
+              <div class="mb-3">
+                <label for="tipoUsuario" class="form-label">Tipo de Usuario</label>
+                <select id="tipoUsuario" class="form-select">
+                  <option value="" disabled selected>Seleccione un tipo de usuario</option>
+                  <option value="Administrador">Administrador</option>
+                  <option value="Cliente">Cliente</option>
+                  <option value="Vendedor">Vendedor</option>
+                </select>
               </div>
 
               <div class="mb-3">
