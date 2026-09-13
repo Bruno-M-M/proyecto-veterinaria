@@ -5,6 +5,7 @@ const formulario = document.getElementById("formulario-registro");
 const nombreRegistro = document.getElementById("nombreRegistro");
 const correoRegistro = document.getElementById("correoRegistro");
 const correoConfirmar = document.getElementById("correoConfirmar");
+const tipoUsuarioRegistro = document.getElementById("tipoUsuario");
 const passwordRegistro = document.getElementById("password");
 const passwordConfirmar = document.getElementById("passwordConfirmar");
 const mensajeResultado = document.getElementById("mensaje-resultado");
@@ -15,13 +16,23 @@ formulario.addEventListener("submit", function(evento){
     const nombre = nombreRegistro.value.trim();
     const correoReg = correoRegistro.value.trim();
     const correoConf = correoConfirmar.value.trim();
+    const tipoUsuario = tipoUsuarioRegistro.value;
     const pwdReg = passwordRegistro.value.trim();
     const pwdConf = passwordConfirmar.value.trim();
 
+    // Validación de campos vacíos
     if (
-        nombre === "" || correoReg === "" || correoConf === "" || pwdReg === "" || pwdConf === ""
+        nombre === "" || correoReg === "" || correoConf === "" || tipoUsuario === "" || pwdReg === "" || pwdConf === ""
     ) {
         mensajeResultado.textContent = "Debe completar todos los campos.";
+        mensajeResultado.className = "alert alert-danger mt-4";
+        return;
+    }
+
+    // Validación de opciones permitidas para Tipo de Usuario
+    const tiposValidos = ["Administrador", "Cliente", "Vendedor"];
+    if (!tiposValidos.includes(tipoUsuario)) {
+        mensajeResultado.textContent = "Debe seleccionar un tipo de usuario válido.";
         mensajeResultado.className = "alert alert-danger mt-4";
         return;
     }
