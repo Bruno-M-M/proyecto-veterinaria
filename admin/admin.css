@@ -5,7 +5,7 @@
 
 .admin-sidebar {
   width: 220px;
-  background-color: #1f2d24;
+  background-color: var(--color-primary-dark, #1f2d24);
   color: white;
   padding: 1.5rem 1rem;
 }
@@ -13,6 +13,7 @@
 .admin-sidebar .logo {
   font-weight: bold;
   margin-bottom: 2rem;
+  color: white;
 }
 
 .admin-sidebar nav ul {
@@ -29,4 +30,183 @@
   flex: 1;
   padding: 2rem;
   background-color: #fafafa;
+}
+
+/* Listado (Productos / Usuarios) */
+
+.admin-content-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1.5rem;
+}
+
+.admin-search {
+  padding: 0.5rem 0.75rem;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  width: 260px;
+  max-width: 100%;
+}
+
+.admin-tabla-wrap {
+  overflow-x: auto;
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+}
+
+.admin-tabla {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.admin-tabla th,
+.admin-tabla td {
+  padding: 0.75rem 1rem;
+  text-align: left;
+  border-bottom: 1px solid #e5e7eb;
+  white-space: nowrap;
+}
+
+.admin-tabla th {
+  color: #4b5563;
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+.admin-tabla tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.stock-alerta {
+  display: inline-block;
+  margin-top: 0.15rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: #b45309;
+  background: #fff3cd;
+  padding: 0.1rem 0.5rem;
+  border-radius: 999px;
+}
+
+/* Formulario (Producto / Usuario) */
+
+.form-producto {
+  max-width: 520px;
+  background: #ffffff;
+  border: 1px solid #e5e7eb;
+  border-radius: 12px;
+  padding: 2rem;
+}
+
+.campo {
+  margin-bottom: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.campo label {
+  font-weight: 500;
+  color: #1f2937;
+}
+
+.campo input,
+.campo textarea,
+.campo select {
+  padding: 0.5rem 0.75rem;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  font-size: 0.95rem;
+}
+
+.campo-error {
+  color: #dc2626;
+  font-size: 0.82rem;
+  margin: 0;
+  min-height: 1em;
+}
+
+.form-mensaje {
+  padding: 0.75rem 1rem;
+  border-radius: 8px;
+  margin-bottom: 1.25rem;
+}
+
+.form-mensaje-exito {
+  background: #d1f7e0;
+  color: #14532d;
+}
+
+.form-mensaje-error {
+  background: #fde2e1;
+  color: #7f1d1d;
+}
+
+.form-acciones {
+  display: flex;
+  gap: 1rem;
+}
+
+/* Modal de edicion (Usuarios) */
+
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+  z-index: 1000;
+}
+
+.modal-overlay.active {
+  display: flex;
+}
+
+.modal-contenido {
+  background: #ffffff;
+  border-radius: 12px;
+  padding: 1.5rem;
+  width: 100%;
+  max-width: 480px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.modal-header h3 {
+  margin: 0;
+  font-size: 1.15rem;
+}
+
+.modal-cerrar {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: #4b5563;
+}
+
+.btn-action-edit {
+  background: var(--color-primary, #2563eb);
+  color: #fff;
+  border: none;
+  padding: 4px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.85rem;
+}
+
+.btn-action-edit:hover {
+  background: var(--color-primary-dark, #1d4ed8);
 }
