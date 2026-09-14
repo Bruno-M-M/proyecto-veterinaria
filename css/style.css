@@ -1,0 +1,578 @@
+:root {
+
+  /*colores por categoría de producto*/
+
+  --color-antibioticos: rgba(0, 105, 18, 0.856);
+  --color-antiparasitarios: rgba(119, 0, 0, 0.856);
+  --color-antiinflamatorios: rgb(0, 8, 119);
+  --color-dermatologia: rgba(80, 0, 133, 0.747);
+  --color-digestivo: rgba(247, 160, 0, 0.897);
+  --color-cardiaco: rgb(178, 34, 34);
+  --color-analgesicos: rgb(0, 128, 128);
+  --color-vacunas: rgba(48, 48, 48, 0.808);
+  --color-suplementos: rgb(107, 142, 35);
+
+  /*colores por categoría de servicio (citas)*/
+
+  --color-consulta: rgb(0, 105, 148);
+  --color-vacunacion: rgba(48, 48, 48, 0.808);
+  --color-cirugia: rgba(119, 0, 0, 0.856);
+  --color-desparacitacion: rgba(247, 160, 0, 0.897);
+  --color-examenes: rgba(80, 0, 133, 0.747);
+  --color-otros: rgb(107, 142, 35);
+
+}
+
+/* menu burger*/
+.menu-toggle {
+  display: block;
+  font-size: 1.8rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.main-nav {
+  display: none;
+  width: 100%;
+}
+
+.main-nav.active {
+  display: block;
+}
+
+/* disposicion de main, footer y descripciopn de nosotros jeje*/
+
+main {
+    background-color: #e6f2ef; /* TODO cambiar a colores institucionales del vet*/
+}
+
+nav a {
+    text-decoration: none;
+    color: black; /* TODO cambiar a colores institucionales del vet*//* TODO cambiar a colores institucionales del vet*/
+}
+
+footer {
+    color: white;
+    font-size: 14px;
+    text-align: center;
+    padding: 10px;
+    background-color: #205a4d; /* TODO cambiar a colores institucionales del vet*/
+}
+
+.foter-nosotros {
+    display: flex;
+    padding: 5px;    
+    color: white;
+}
+
+.foter-contacto {
+    display: flex;
+    padding: 5px;
+    color: white;
+}
+
+/* buscar por categorias */
+
+.select-categoria {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-right: 2rem;
+}
+
+.select-categoria .servicios-nombre {
+    padding: 10;
+}
+
+.categoria-select {
+    padding: 0.5rem 1rem;
+    border: 1px solid darkgoldenrod; /*TODO modificar color a institucional cuando se elijan colores */
+    border-radius: 8px;
+    color: rgb(184, 134, 11); /*TODO modificar color a institucional cuando se elijan colores */
+    background-color: rgba(184, 135, 11, 0.027);
+    font-weight: 500;
+}
+
+/* Contenedor de productos en grid */
+
+.servicios-nombre {
+    padding: 0 2rem;
+}
+
+.servicios {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    padding: 1rem 2rem 3rem;
+}
+
+
+.servicios article {
+    background: #ffffff;
+    border: 1px solid #e5e7eb;
+    border-radius: 12px;
+    padding: 1.5rem;
+    box-shadow: 0 2px 6px lightgray;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.servicios article:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.12);
+}
+
+.servicios article h3 {
+    font-size: 1.15rem;
+    font-weight: 600;
+    color: #1f2937;
+    margin-bottom: 0.5rem;
+}
+
+.producto-link {
+    color: inherit;
+    text-decoration: none;
+}
+
+.producto-link:hover {
+    text-decoration: underline;
+    color: var(--color-servicio);
+}
+
+.servicios article p {
+    font-size: 0.92rem;
+    color: #4b5563;
+    line-height: 1.4;
+    margin-bottom: 1rem;
+}
+
+/* Precio como badge destacado */
+.servicios article .precio {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--color-servicio) !important;
+    margin-bottom: 1rem;
+}
+
+/* Botón alineado al fondo de la tarjeta */
+.servicios article .boton-agregar {
+    margin-top: auto;
+    align-self: flex-start;
+    border-radius: 8px;
+    font-weight: 500;
+    color: var(--color-servicio) !important;
+    border-color: var(--color-servicio) !important;
+    background-color: transparent !important;
+}
+
+.servicios article .boton-agregar:hover {
+    background-color: var(--color-servicio) !important;
+    color: #fff !important;
+}
+
+/* Cada categoría define su color una sola vez, borde y botón lo heredan */
+.servicios article.antibioticos,
+.recomendado-item.antibioticos {
+    --color-servicio: var(--color-antibioticos);
+    border-left: 6px solid var(--color-servicio);
+}
+
+.servicios article.antiparasitarios,
+.recomendado-item.antiparasitarios {
+    --color-servicio: var(--color-antiparasitarios);
+    border-left: 6px solid var(--color-servicio);
+}
+
+.servicios article.antiinflamatorios,
+.recomendado-item.antiinflamatorios {
+    --color-servicio: var(--color-antiinflamatorios);
+    border-left: 6px solid var(--color-servicio);
+}
+
+.servicios article.dermatologia,
+.recomendado-item.dermatologia {
+    --color-servicio: var(--color-dermatologia);
+    border-left: 6px solid var(--color-servicio);
+}
+
+.servicios article.digestivo,
+.recomendado-item.digestivo {
+    --color-servicio: var(--color-digestivo);
+    border-left: 6px solid var(--color-servicio);
+}
+
+.servicios article.cardiaco,
+.recomendado-item.cardiaco {
+    --color-servicio: var(--color-cardiaco);
+    border-left: 6px solid var(--color-servicio);
+}
+
+.servicios article.analgesicos,
+.recomendado-item.analgesicos {
+    --color-servicio: var(--color-analgesicos);
+    border-left: 6px solid var(--color-servicio);
+}
+
+.servicios article.vacunas,
+.recomendado-item.vacunas {
+    --color-servicio: var(--color-vacunas);
+    border-left: 6px solid var(--color-servicio);
+}
+
+.servicios article.suplementos,
+.recomendado-item.suplementos {
+    --color-servicio: var(--color-suplementos);
+    border-left: 6px solid var(--color-servicio);
+}
+
+/* Categorías de servicios (citas) */
+
+.servicios article.consulta {
+    --color-servicio: var(--color-consulta);
+    border-left: 6px solid var(--color-servicio);
+}
+
+.servicios article.vacunacion {
+    --color-servicio: var(--color-vacunacion);
+    border-left: 6px solid var(--color-servicio);
+}
+
+.servicios article.cirugia {
+    --color-servicio: var(--color-cirugia);
+    border-left: 6px solid var(--color-servicio);
+}
+
+.servicios article.desparacitacion {
+    --color-servicio: var(--color-desparacitacion);
+    border-left: 6px solid var(--color-servicio);
+}
+
+.servicios article.examenes {
+    --color-servicio: var(--color-examenes);
+    border-left: 6px solid var(--color-servicio);
+}
+
+.servicios article.otros {
+    --color-servicio: var(--color-otros);
+    border-left: 6px solid var(--color-servicio);
+}
+
+@media (min-width: 768px) {
+  .menu-toggle {
+    display: none;
+  }
+
+  .main-nav {
+    display: block;
+  }
+
+  .servicios {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (min-width: 1280px) {
+  .servicios {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+/* Carrito de compras */
+
+.carrito-contenido {
+    margin: 0 2rem 3rem;
+    background: #ffffff;
+    border: 1px solid #e5e7eb;
+    border-radius: 12px;
+    padding: 1.5rem;
+    box-shadow: 0 2px 6px lightgray;
+}
+
+.tabla-carrito-wrap {
+    overflow-x: auto;
+}
+
+.tabla-carrito {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.tabla-carrito th,
+.tabla-carrito td {
+    padding: 0.75rem 0.5rem;
+    text-align: left;
+    border-bottom: 1px solid #e5e7eb;
+    white-space: nowrap;
+}
+
+.tabla-carrito th {
+    color: #4b5563;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 0.03em;
+}
+
+.tabla-carrito tbody tr:last-child td {
+    border-bottom: none;
+}
+
+.cantidad-control {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.carrito-cantidad {
+    min-width: 1.2rem;
+    text-align: center;
+    font-variant-numeric: tabular-nums;
+}
+
+#carrito-vacio {
+    text-align: center;
+    color: #4b5563;
+    padding: 2rem 0;
+}
+
+.carrito-resumen {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+    margin-top: 1.5rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid #e5e7eb;
+}
+
+.carrito-total {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #198754;
+    margin: 0;
+    margin-right: auto;
+}
+
+/* Detalle de producto */
+
+#detalle-producto {
+    padding: 1rem 2rem 3rem;
+    max-width: 640px;
+}
+
+.volver {
+    margin-bottom: 1rem;
+}
+
+.volver a {
+    color: #4b5563;
+    text-decoration: none;
+    font-size: 0.92rem;
+}
+
+.volver a:hover {
+    text-decoration: underline;
+}
+
+.detalle-contenido {
+    background: #ffffff;
+    border: 1px solid #e5e7eb;
+    border-left: 6px solid var(--color-servicio, #198754);
+    border-radius: 12px;
+    padding: 2rem;
+    box-shadow: 0 2px 6px lightgray;
+}
+
+.detalle-categoria {
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    font-size: 0.8rem;
+    font-weight: 600;
+    color: var(--color-servicio, #198754);
+    margin-bottom: 0.25rem;
+}
+
+#detalle-nombre {
+    margin-top: 0;
+    margin-bottom: 0.75rem;
+}
+
+.detalle-descripcion {
+    color: #4b5563;
+    line-height: 1.5;
+    margin-bottom: 1.25rem;
+}
+
+.detalle-precio {
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: var(--color-servicio, #198754);
+    margin-bottom: 1.5rem;
+}
+
+.detalle-cantidad {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.recomendados {
+    margin-top: 2rem;
+}
+
+.recomendados h3 {
+    font-size: 1rem;
+    color: #4b5563;
+    margin-bottom: 0.75rem;
+}
+
+.recomendados-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 0.75rem;
+}
+
+.recomendado-item {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    background: #ffffff;
+    border: 1px solid #e5e7eb;
+    border-left: 3px solid var(--color-servicio, #198754);
+    border-radius: 8px;
+    padding: 0.75rem 1rem;
+    text-decoration: none;
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.recomendado-item:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+}
+
+.recomendado-nombre {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: #1f2937;
+}
+
+.recomendado-precio {
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: var(--color-servicio, #198754);
+}
+
+.aviso-no-encontrado {
+    background: #fff8e6;
+    border: 1px solid #f5d99a;
+    border-left: 6px solid #d97706;
+    border-radius: 12px;
+    padding: 1.5rem 2rem;
+    color: #7c4a03;
+}
+
+.aviso-no-encontrado p {
+    margin: 0 0 0.75rem;
+    font-weight: 600;
+}
+
+.aviso-no-encontrado a {
+    color: #7c4a03;
+}
+
+/* Modal de agendar cita */
+
+.modal-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+    z-index: 1000;
+}
+
+.modal-contenido {
+    position: relative;
+    background: #ffffff;
+    border-radius: 12px;
+    padding: 2rem;
+    width: 100%;
+    max-width: 480px;
+    max-height: 90vh;
+    overflow-y: auto;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.modal-cerrar {
+    position: absolute;
+    top: 0.75rem;
+    right: 1rem;
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    line-height: 1;
+    cursor: pointer;
+    color: #4b5563;
+}
+
+.modal-contenido .form-producto {
+    max-width: none;
+    padding: 0;
+    border: none;
+}
+
+.modal-contenido h3 {
+    margin-top: 0;
+    margin-bottom: 1.25rem;
+}
+
+/* Formularios (compartido con modal de citas) */
+
+.campo {
+  margin-bottom: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.campo label {
+  font-weight: 500;
+  color: #1f2937;
+}
+
+.campo input,
+.campo textarea,
+.campo select {
+  padding: 0.5rem 0.75rem;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  font-size: 0.95rem;
+}
+
+.campo-error {
+  color: #dc2626;
+  font-size: 0.82rem;
+  margin: 0;
+  min-height: 1em;
+}
+
+.form-mensaje {
+  padding: 0.75rem 1rem;
+  border-radius: 8px;
+  margin-bottom: 1.25rem;
+}
+
+.form-mensaje-exito {
+  background: #d1f7e0;
+  color: #14532d;
+}
+
+.form-mensaje-error {
+  background: #fde2e1;
+  color: #7f1d1d;
+}
