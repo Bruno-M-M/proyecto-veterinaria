@@ -1,28 +1,24 @@
 document.addEventListener('DOMContentLoaded', () => {
   const form = document.getElementById('formulario-login');
 
-  // Selección de inputs
+
   const correoInput = document.getElementById('correo');
   const passwordInput = document.getElementById('password');
 
-  // Obtener o crear el contenedor para el mensaje final
+
   let mensajeDiv = document.getElementById('mensaje-resultado');
 
 
   form.addEventListener('submit', (e) => {
     e.preventDefault();
 
-    // Limpiar errores previos
     limpiarErrores();
 
     const correo = correoInput ? correoInput.value.trim() : '';
     const password = passwordInput ? passwordInput.value : '';
     let esValido = true;
 
-    // ==========================================
-    // 1. VALIDACIÓN DE CORREO
-    // ==========================================
-    // Expresión regular para verificar dominios permitidos
+
     const regexDominio = /@(duoc\.cl|profesor\.duoc\.cl|gmail\.com)$/i;
 
     if (correo === '') {
@@ -36,9 +32,7 @@ document.addEventListener('DOMContentLoaded', () => {
       esValido = false;
     }
 
-    // ==========================================
-    // 2. VALIDACIÓN DE CONTRASEÑA
-    // ==========================================
+
     if (password === '') {
       mostrarError(passwordInput, 'La contraseña es requerida.');
       esValido = false;
@@ -47,16 +41,13 @@ document.addEventListener('DOMContentLoaded', () => {
       esValido = false;
     }
 
-    // ==========================================
-    // RESULTADO
-    // ==========================================
+
     if (esValido) {
       mensajeDiv.className = 'exito';
       mensajeDiv.style.display = 'block';
       mensajeDiv.textContent = '¡Inicio de sesión exitoso!';
       
-      // Aquí podrías redirigir al usuario, por ejemplo:
-      // window.location.href = 'index.html';
+
     } else {
       mensajeDiv.className = 'error';
       mensajeDiv.style.display = 'block';
@@ -64,7 +55,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   });
 
-  // Función para inyectar mensajes de error bajo cada campo
   function mostrarError(input, mensaje) {
     if (!input) return;
     input.classList.add('is-invalid');
@@ -81,7 +71,7 @@ document.addEventListener('DOMContentLoaded', () => {
     feedback.textContent = mensaje;
   }
 
-  // Función para resetear estados de error
+
   function limpiarErrores() {
     mensajeDiv.style.display = 'none';
     mensajeDiv.textContent = '';

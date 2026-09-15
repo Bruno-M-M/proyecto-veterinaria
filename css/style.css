@@ -1,4 +1,4 @@
-/* VARIABLES DE MARCA (colores, tipografia, espaciados) */
+
 :root {
   --color-primary: #2e7d6b;
   --color-primary-dark: #205a4d;
@@ -395,7 +395,7 @@ a:hover {
   font-size: 0.85rem;
 }
 
-/* CATALOGO DE PRODUCTOS Y SERVICIOS (filtro por categoria) */
+/* Catalogo de producto, servicios y filtro por categoria */
 .select-categoria {
   display: flex;
   align-items: center;
@@ -789,7 +789,7 @@ a:hover {
   color: #7c4a03;
 }
 
-/* MODAL DE AGENDAR CITA */
+/* AGENDAR CITA */
 .modal-overlay {
   position: fixed;
   inset: 0;

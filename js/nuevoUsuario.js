@@ -1,5 +1,5 @@
 
-/* Formulario de nuevo usuario (Admin) */
+
 const formulario = document.getElementById("formulario-registro");
 const nombreRegistro = document.getElementById("nombreRegistro");
 const runRegistro = document.getElementById("runRegistro");
@@ -12,9 +12,7 @@ const passwordRegistro = document.getElementById("password");
 const passwordConfirmar = document.getElementById("passwordConfirmar");
 const mensajeResultado = document.getElementById("mensaje-resultado");
 
-/**
- * Cargar regiones en el select al inicializar el script
- */
+
 function cargarRegiones() {
     regionesYComunas.forEach(item => {
         const option = document.createElement("option");
@@ -26,9 +24,7 @@ function cargarRegiones() {
 
 cargarRegiones();
 
-/**
- * Evento al cambiar de región para filtrar las comunas
- */
+
 regionRegistro.addEventListener("change", function() {
     const regionSeleccionada = this.value;
     const objetoRegion = regionesYComunas.find(item => item.region === regionSeleccionada);
@@ -48,9 +44,7 @@ regionRegistro.addEventListener("change", function() {
     }
 });
 
-/**
- * Función para validar un RUN chileno ingresado sin puntos ni guión
- */
+
 function validarRUN(run) {
     const regExp = /^[0-9]{7,8}[0-9kK]$/;
     if (!regExp.test(run)) return false;

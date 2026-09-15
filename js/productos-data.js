@@ -5,7 +5,7 @@ const productos = [
   { codigo: "ME003", categoria: "antibioticos", nombre: "Metrobay 250mg", descripcion: "Metronidazol — Blíster de 10 comprimidos. Para perro y gato. Stock disponible: 28 unidades.", precio: 3900, stock: 28, stockCritico: 8 },
 
   { codigo: "ME004", categoria: "antiparasitarios", nombre: "Nexgard", descripcion: "Afoxolaner — Masticable, 1 unidad. Para perro. Stock disponible: 60 unidades.", precio: 9500, stock: 60, stockCritico: 15 },
-  { codigo: "ME005", categoria: "antiparasitarios", nombre: "Bravecto", descripcion: "Fluralaner — Masticable, 1 unidad. Para perro. Stock disponible: 40 unidades.", precio: 18900, stock: 40, stockCritico: 10 },
+  { codigo: "ME005", categoria: "antiparasitarios", nombre: "Bravecto", descripcion: "Fluralaner — Masticable, 1 unidad. Para perro. Stock disponible: 40 unidades.", precio: 18900, stock: 4, stockCritico: 10 },
   { codigo: "ME006", categoria: "antiparasitarios", nombre: "Revolution Plus", descripcion: "Selamectina + Sarolaner — Pipeta, 1 unidad. Para gato. Stock disponible: 35 unidades.", precio: 14500, stock: 35, stockCritico: 8 },
   { codigo: "ME007", categoria: "antiparasitarios", nombre: "Drontal Plus", descripcion: "Praziquantel + Pamoato — Comprimido, 1 unidad. Para perro. Stock disponible: 80 unidades.", precio: 3200, stock: 80, stockCritico: 15 },
   { codigo: "ME008", categoria: "antiparasitarios", nombre: "Milbemax Gato", descripcion: "Milbemicina + Praziquantel — Comprimido, 2 unidades. Para gato. Stock disponible: 50 unidades.", precio: 6800, stock: 50, stockCritico: 10 },
@@ -25,9 +25,9 @@ const productos = [
   { codigo: "ME017", categoria: "analgesicos", nombre: "Tramadol 50mg vet", descripcion: "Tramadol — Blíster de 10 comprimidos. Para perro. Stock disponible: 22 unidades.", precio: 5200, stock: 22, stockCritico: 6 },
 
   { codigo: "ME018", categoria: "vacunas", nombre: "Nobivac DHPPi", descripcion: "Vacuna polivalente — Vial, 1 dosis. Para perro. Stock disponible: 48 unidades.", precio: 8500, stock: 48, stockCritico: 10 },
-  { codigo: "ME019", categoria: "vacunas", nombre: "Nobivac Rabies", descripcion: "Vacuna antirrábica — Vial, 1 dosis. Para perro y gato. Stock disponible: 60 unidades.", precio: 5800, stock: 60, stockCritico: 15 },
+  { codigo: "ME019", categoria: "vacunas", nombre: "Nobivac Rabies", descripcion: "Vacuna antirrábica — Vial, 1 dosis. Para perro y gato. Stock disponible: 60 unidades.", precio: 5800, stock: 6, stockCritico: 15 },
   { codigo: "ME020", categoria: "vacunas", nombre: "Felocell CVR", descripcion: "Vacuna triple felina — Vial, 1 dosis. Para gato. Stock disponible: 36 unidades.", precio: 7200, stock: 36, stockCritico: 8 },
 
-  { codigo: "ME021", categoria: "suplementos", nombre: "Omega vet 3-6-9", descripcion: "Ácidos grasos omega — Frasco de 100ml. Para perro y gato. Stock disponible: 30 unidades.", precio: 9900, stock: 30, stockCritico: 8 },
+  { codigo: "ME021", categoria: "suplementos", nombre: "Omega vet 3-6-9", descripcion: "Ácidos grasos omega — Frasco de 100ml. Para perro y gato. Stock disponible: 30 unidades.", precio: 9900, stock: 3, stockCritico: 8 },
   { codigo: "ME022", categoria: "suplementos", nombre: "Condrovet forte", descripcion: "Condroitina + Glucosamina — Blíster de 30 comprimidos. Para perro. Stock disponible: 25 unidades.", precio: 14500, stock: 25, stockCritico: 6 },
 ];
